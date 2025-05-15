@@ -8,7 +8,7 @@ import '../../../data/repositories/login_repository.dart';
 import 'login_state.dart';
 
 class LoginController extends ChangeNotifier {
-  final LoginRepository _authRepository;
+  final LoginRepository _loginRepository;
 
   // Estado interno
   LoginState _state = const LoginState();
@@ -18,7 +18,7 @@ class LoginController extends ChangeNotifier {
   final usernameController = TextEditingController(text: 'teste.mobile');
   final passwordController = TextEditingController(text: '1234');
 
-  LoginController(this._authRepository);
+  LoginController(this._loginRepository);
 
   // Método de login
   Future<void> login(BuildContext context) async {
@@ -36,7 +36,7 @@ class LoginController extends ChangeNotifier {
     _updateState(isLoading: true, errorMessage: '');
 
     try {
-      final success = await _authRepository.login(
+      final success = await _loginRepository.login(
         usernameController.text,
         passwordController.text,
       );

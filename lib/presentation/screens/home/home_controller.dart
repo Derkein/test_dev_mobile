@@ -6,19 +6,19 @@ import '../../../data/repositories/task_repository.dart';
 import 'home_state.dart';
 
 class HomeController extends ChangeNotifier {
-  final LoginRepository _authRepository;
+  final LoginRepository _loginRepository;
   final TaskRepository _taskRepository;
 
   HomeState _state = const HomeState(isLoading: true);
   HomeState get state => _state;
 
-  HomeController(this._authRepository, this._taskRepository);
+  HomeController(this._loginRepository, this._taskRepository);
 
   /// Carrega usuário e tarefas concluídas
   Future<void> loadUserAndTasks() async {
     _updateState(isLoading: true, errorMessage: '');
     try {
-      final user = await _authRepository.getUser();
+      final user = await _loginRepository.getUser();
       final completed = await _taskRepository.getCompletedTaskIds();
       _updateState(
         isLoading: false,
@@ -37,7 +37,7 @@ class HomeController extends ChangeNotifier {
   Future<void> logout(BuildContext context) async {
   final navigator = Navigator.of(context);
 
-  await _authRepository.logout();
+  await _loginRepository.logout();
 
   navigator.pushReplacement(
     MaterialPageRoute(builder: (_) => const LoginView()),

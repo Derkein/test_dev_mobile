@@ -13,9 +13,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeController>(
       create: (ctx) {
-        final authRepo = ctx.read<LoginRepository>();
+        final loginRepo = ctx.read<LoginRepository>();
         final taskRepo = ctx.read<TaskRepository>();
-        final ctrl = HomeController(authRepo, taskRepo);
+        final ctrl = HomeController(loginRepo, taskRepo);
         // dispara a carga inicial
         ctrl.loadUserAndTasks();
         return ctrl;
