@@ -3,13 +3,13 @@ import 'dart:developer';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:test_dev_mobile/data/models/user_model.dart';
 
-class AuthRepository {
+class LoginRepository {
   final FlutterSecureStorage _secureStorage;
   //static const String _baseUrl = 'https://apimw.sistemagiv.com.br/TestMobile';
   static const String _userKey = 'user_data';
   static const String _tokenKey = 'auth_token';
 
-  AuthRepository(this._secureStorage);
+  LoginRepository(this._secureStorage);
 
   Future<bool> login(String username, String password) async {
     if (username == 'teste.mobile' && password == '1234') {

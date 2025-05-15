@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 import 'package:test_dev_mobile/presentation/screens/home/home_view.dart';
-import '../../../data/repositories/auth_repository.dart';
+import '../../../data/repositories/login_repository.dart';
 import 'login_state.dart';
 
 class LoginController extends ChangeNotifier {
-  final AuthRepository _authRepository;
+  final LoginRepository _authRepository;
 
   // Estado interno
   LoginState _state = const LoginState();

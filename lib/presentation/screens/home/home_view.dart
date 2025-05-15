@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../data/repositories/auth_repository.dart';
+import '../../../data/repositories/login_repository.dart';
 import '../../../data/repositories/task_repository.dart';
 import '../../widgets/task_item.dart';
 import '../tasks/task_form_view.dart';
@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeController>(
       create: (ctx) {
-        final authRepo = ctx.read<AuthRepository>();
+        final authRepo = ctx.read<LoginRepository>();
         final taskRepo = ctx.read<TaskRepository>();
         final ctrl = HomeController(authRepo, taskRepo);
         // dispara a carga inicial

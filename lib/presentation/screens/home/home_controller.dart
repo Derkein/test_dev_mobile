@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:test_dev_mobile/presentation/screens/login/login_view.dart';
 import '../../../data/models/user_model.dart';
-import '../../../data/repositories/auth_repository.dart';
+import '../../../data/repositories/login_repository.dart';
 import '../../../data/repositories/task_repository.dart';
 import 'home_state.dart';
 
 class HomeController extends ChangeNotifier {
-  final AuthRepository _authRepository;
+  final LoginRepository _authRepository;
   final TaskRepository _taskRepository;
 
   HomeState _state = const HomeState(isLoading: true);
