@@ -73,8 +73,8 @@ Este projeto demonstra:
 
 2. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/mundo-wap-task-app.git
-   cd mundo-wap-task-app
+   git clone https://github.com/Derkein/test_dev_mobile
+   cd test_dev_mobile
    ```
 
 3. **Instale as dependências:**
