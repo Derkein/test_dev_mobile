@@ -14,7 +14,6 @@ class HomeController extends ChangeNotifier {
 
   HomeController(this._loginRepository, this._taskRepository);
 
-  /// Carrega usuário e tarefas concluídas
   Future<void> loadUserAndTasks() async {
     _updateState(isLoading: true, errorMessage: '');
     try {
@@ -33,7 +32,6 @@ class HomeController extends ChangeNotifier {
     }
   }
 
-  /// Desloga e navega para a tela de login
   Future<void> logout(BuildContext context) async {
   final navigator = Navigator.of(context);
 

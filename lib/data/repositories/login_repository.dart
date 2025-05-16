@@ -16,7 +16,7 @@ class LoginRepository {
       final mockResponseData = _getMockResponseData();
       final user = UserModel.fromJson(mockResponseData['user']);
       
-      // Store user data
+      // Salva os dados do usuário
       await _secureStorage.write(
         key: _userKey,
         value: jsonEncode(user.toJson()),
@@ -45,7 +45,6 @@ class LoginRepository {
         if (data['success'] == true) {
           final user = UserModel.fromJson(data['user']);
           
-          // Store user data and token
           await _secureStorage.write(
             key: _userKey,
             value: jsonEncode(user.toJson()),
@@ -63,9 +62,14 @@ class LoginRepository {
   }
 
   Future<bool> isLoggedIn() async {
+  try {
     final userData = await _secureStorage.read(key: _userKey);
     return userData != null;
+  } catch (e, stackTrace) {
+    log('Erro ao verificar status de login: $e', stackTrace: stackTrace);
+    return false;
   }
+}
 
   Future<UserModel?> getUser() async {
     try {
@@ -85,7 +89,7 @@ class LoginRepository {
     await _secureStorage.delete(key: _tokenKey);
   }
   
-  // Mock response data
+  // Resposta mockada
   Map<String, dynamic> _getMockResponseData() {
     return {
       "success": true,

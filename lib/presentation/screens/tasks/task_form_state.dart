@@ -3,7 +3,7 @@ class TaskFormState {
   final bool isFormDirty;
 
   const TaskFormState({
-    this.isLoading = true,   // começa carregando os dados
+    this.isLoading = true,   
     this.isFormDirty = false,
   });
 

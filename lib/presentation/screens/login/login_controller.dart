@@ -10,27 +10,22 @@ import 'login_state.dart';
 class LoginController extends ChangeNotifier {
   final LoginRepository _loginRepository;
 
-  // Estado interno
   LoginState _state = const LoginState();
   LoginState get state => _state;
 
-  // Text controllers (você pode pré-preencher aqui)
   final usernameController = TextEditingController(text: 'teste.mobile');
   final passwordController = TextEditingController(text: '1234');
 
   LoginController(this._loginRepository);
 
-  // Método de login
   Future<void> login(BuildContext context) async {
     if (_state.isLoading) return;
 
-    // validações básicas
     if (usernameController.text.isEmpty || passwordController.text.isEmpty) {
       _updateState(errorMessage: 'Usuário e senha são obrigatórios.');
       return;
     }
 
-    // captura navigator ANTES do await
     final navigator = Navigator.of(context);
 
     _updateState(isLoading: true, errorMessage: '');
@@ -62,7 +57,6 @@ class LoginController extends ChangeNotifier {
 
     _updateState(isLoading: true);
 
-    // captura o messenger ANTES do await
     final messenger = ScaffoldMessenger.of(context);
 
     try {

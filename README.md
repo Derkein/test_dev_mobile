@@ -59,6 +59,7 @@ Este projeto demonstra:
 - Flutter & Dart  
 - Provider (injeção de dependências e gerenciamento de estado)  
 - SQFlite (SQLite local)  
+- path (manipulação de caminhos de arquivo) 
 - Flutter Secure Storage (armazenamento de dados de login)  
 - intl (validação de data)  
 

@@ -50,24 +50,23 @@ class TaskFormController extends ChangeNotifier with WidgetsBindingObserver {
         controllers[fieldId]?.text = value;
       });
       updateState(isFormDirty: true);
-    }
-
-    // 2) Carrega respostas já salvas
-    final responses = await _taskRepository.getTaskResponses(task.id);
-    for (var resp in responses) {
-      FieldModel? match;
-      try {
-        match = task.fields.firstWhere((f) => f.label == resp.fieldLabel);
-      } catch (_) {
-        match = null;
+    } else {
+      // 2) Se NÃO existe estado temporário, carrega respostas já salvas
+      final responses = await _taskRepository.getTaskResponses(task.id);
+      for (var resp in responses) {
+        FieldModel? match;
+        try {
+          match = task.fields.firstWhere((f) => f.label == resp.fieldLabel);
+        } catch (_) {
+          match = null;
+        }
+        if (match != null) {
+          controllers[match.id]!.text = resp.fieldValue;
+        }
       }
-      if (match != null) {
-        controllers[match.id]!.text = resp.fieldValue;
+      if (responses.isNotEmpty) {
+        updateState(isFormDirty: true);
       }
-    }
-
-    if (responses.isNotEmpty) {
-      updateState(isFormDirty: true);
     }
 
     updateState(isLoading: false);

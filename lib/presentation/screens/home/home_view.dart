@@ -16,7 +16,6 @@ class HomeView extends StatelessWidget {
         final loginRepo = ctx.read<LoginRepository>();
         final taskRepo = ctx.read<TaskRepository>();
         final ctrl = HomeController(loginRepo, taskRepo);
-        // dispara a carga inicial
         ctrl.loadUserAndTasks();
         return ctrl;
       },

@@ -103,7 +103,6 @@ class TaskFormView extends StatelessWidget {
                               return null;
                             },
                             onChanged: (_) {
-                              // marca dirty
                               controller.updateState(isFormDirty: true);
                             },
                           ),

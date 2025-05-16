@@ -8,7 +8,7 @@ class TaskRepository {
 
   TaskRepository(this._database);
 
-  // Save task response
+  // Salva as respostas das tarefas na tabela 
   Future<int> saveTaskResponse(TaskResponseModel response) async {
     try {
       return await _database.insert(
@@ -22,7 +22,7 @@ class TaskRepository {
     }
   }
 
-  // Mark task as completed
+  // Marca as tarefas com concluidas
   Future<bool> markTaskAsCompleted(int taskId) async {
     try {
       await _database.insert(
@@ -40,7 +40,7 @@ class TaskRepository {
     }
   }
 
-  // Check if task is completed
+  // Checka se a tarefa foi concluida
   Future<bool> isTaskCompleted(int taskId) async {
     try {
       final result = await _database.query(
@@ -55,7 +55,7 @@ class TaskRepository {
     }
   }
 
-  // Get all completed task IDs
+  // Recupera todos os ids das tarefas completadas 
   Future<List<int>> getCompletedTaskIds() async {
     try {
       final result = await _database.query('completed_tasks');
@@ -66,7 +66,7 @@ class TaskRepository {
     }
   }
 
-  // Save form state for when app goes to background
+  // Salva um formulario temporario quando o aplicativo vai para backgorund 
   Future<void> saveFormState(int taskId, int fieldId, String value) async {
     try {
       await _database.insert(
@@ -83,7 +83,7 @@ class TaskRepository {
     }
   }
 
-  // Get saved form state
+  // Recupera o formulario temporario salvo 
   Future<Map<int, String>> getFormState(int taskId) async {
     try {
       final result = await _database.query(
@@ -104,7 +104,7 @@ class TaskRepository {
     }
   }
 
-  // Clear form state
+  // Limpa o formulatio temporario =
   Future<void> clearFormState(int taskId) async {
     try {
       await _database.delete(
@@ -117,7 +117,7 @@ class TaskRepository {
     }
   }
 
-  // Get all responses for a task
+  // Recupara todas as perguntas da tarefa 
   Future<List<TaskResponseModel>> getTaskResponses(int taskId) async {
     try {
       final result = await _database.query(

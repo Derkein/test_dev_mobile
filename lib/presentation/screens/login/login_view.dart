@@ -10,7 +10,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => LoginController(
-        Provider.of(context, listen: false), // injeta LoginRepository
+        Provider.of(context, listen: false), 
       ),
       child: Consumer<LoginController>(
         builder: (context, controller, _) {

@@ -10,18 +10,18 @@ class PriceInputFormatter extends TextInputFormatter {
       return newValue;
     }
 
-    // Remove non-digit characters
+    // Remove caracteres que não são digitos
     String digitsOnly = newValue.text.replaceAll(RegExp(r'[^\d]'), '');
     
-    // Ensure we have at least one digit
+    // garante que existe pelo menos 1 digito
     if (digitsOnly.isEmpty) {
       digitsOnly = '0';
     }
     
-    // Convert to double (cents)
+    // converte para double (centavos)
     double value = int.parse(digitsOnly) / 100;
     
-    // Format as currency
+    // formata para dinheiro/moeda
     String formatted = 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
     
     return TextEditingValue(
@@ -41,15 +41,15 @@ class DateInputFormatter extends TextInputFormatter {
       return newValue;
     }
 
-    // Remove non-digit characters
+    // Remove caracteres que não são digitos
     String digitsOnly = newValue.text.replaceAll(RegExp(r'[^\d]'), '');
     
-    // Limit to 8 digits (DDMMYYYY)
+    // Limita para 8 digitos (DDMMYYYY)
     if (digitsOnly.length > 8) {
       digitsOnly = digitsOnly.substring(0, 8);
     }
     
-    // Format as DD/MM/YYYY
+    // Formata como DD/MM/YYYY
     String formatted = '';
     
     for (int i = 0; i < digitsOnly.length; i++) {
