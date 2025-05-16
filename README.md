@@ -64,50 +64,6 @@ Este projeto demonstra:
 
 ---
 
-## 📁 Estrutura de Pastas
-lib/
-├── core/
-│   ├── database/
-│   │   └── app_database.dart        # Inicia e configura o SQLite
-│   └── utils/
-│       └── input_formatters.dart    # Máscaras de preço e data
-│
-├── data/
-│   ├── models/
-│   │   ├── field_model.dart
-│   │   ├── task_model.dart
-│   │   ├── task_response_model.dart
-│   │   └── user_model.dart
-│   └── repositories/
-│       ├── login_repository.dart    # Mock de API + SecureStorage
-│       └── task_repository.dart     # CRUD em SQLite
-│
-├── presentation/
-│   ├── screens/
-│   │   ├── login/
-│   │   │   ├── login_view.dart
-│   │   │   ├── login_controller.dart
-│   │   │   └── login_state.dart
-│   │   ├── home/
-│   │   │   ├── home_view.dart
-│   │   │   ├── home_controller.dart
-│   │   │   └── home_state.dart
-│   │   └── tasks/
-│   │       ├── task_form_view.dart
-│   │       ├── task_form_controller.dart
-│   │       └── task_form_state.dart
-│   │
-│   ├── widgets/
-│   │   ├── loading_overlay.dart     # Overlay de loading
-│   │   └── task_item.dart           # Card de tarefa
-│   │
-│   └── theme/
-│       └── app_theme.dart           # Cores e estilos globais
-│
-└── main.dart                        # Entry point + Providers
-
----
-
 ## ⚙️ Como Executar
 
 1. **Pré-requisitos**
@@ -132,7 +88,7 @@ lib/
    ```
 
 5. **Login:**
-  Usuário: teste.mobile
-  Senha: 1234
+  - Usuário: teste.mobile
+  - Senha: 1234
 
   ---
